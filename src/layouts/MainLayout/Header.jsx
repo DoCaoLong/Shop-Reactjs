@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useTranslate from "../../core/useTranslate"
 export default function Header(){
   let {t} =  useTranslate()
@@ -51,7 +52,7 @@ export default function Header(){
                         src="/img/flags/usa.svg"
                         alt="USA"
                       />
-                      United States
+                      {t("United States")}
                     </a>
                     <a className="dropdown-item" href="#!">
                       <img
@@ -59,7 +60,7 @@ export default function Header(){
                         src="/img/flags/canada.svg"
                         alt="Canada"
                       />
-                      Canada
+                      {t("Canada")}
                     </a>
                     <a className="dropdown-item" href="#!">
                       <img
@@ -67,7 +68,8 @@ export default function Header(){
                         src="/img/flags/germany.svg"
                         alt="Germany"
                       />
-                      Germany
+
+                      {t("Germany")}
                     </a>
                   </div>
                 </li>
@@ -116,19 +118,19 @@ export default function Header(){
               {/* Nav */}
               <ul className="nav navbar-nav mr-8">
                 <li className="nav-item">
-                  <a className="nav-link" href="./shipping-and-returns.html">
-                    Shipping
-                  </a>
+                  <Link className="nav-link" to="/shipping-and-return">
+                    {t("Shipping")}
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="./faq.html">
+                  <Link className="nav-link" to="/faq">
                     FAQ
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="./contact-us.html">
-                    Contact
-                  </a>
+                  <Link className="nav-link" to="/contact">
+                    {t("Contact")}
+                  </Link>
                 </li>
               </ul>
               {/* Nav */}
@@ -161,9 +163,9 @@ export default function Header(){
         <nav className="navbar navbar-expand-lg navbar-light bg-white">
           <div className="container">
             {/* Brand */}
-            <a className="navbar-brand" href="./overview.html">
-              Shopper.
-            </a>
+            <Link className="navbar-brand" to="/">
+              {t("Shopper.")}
+            </Link>
             {/* Toggler */}
             <button
               className="navbar-toggler"
@@ -183,7 +185,7 @@ export default function Header(){
                 <li className="nav-item dropdown">
                   {/* Toggle */}
                   <a className="nav-link" data-toggle="dropdown" href="#">
-                    Home
+                    {t("Home")}
                   </a>
                   {/* Menu */}
                   <div className="dropdown-menu">
@@ -192,7 +194,7 @@ export default function Header(){
                         <ul className="list-styled font-size-sm">
                           <li className="list-styled-item">
                             <a className="list-styled-link" href="./index.html">
-                              Default
+                              {t("Default")}
                             </a>
                           </li>
                           <li className="list-styled-item">
@@ -200,7 +202,7 @@ export default function Header(){
                               className="list-styled-link"
                               href="./index-classic.html"
                             >
-                              Classic
+                              {t("Classic")}
                             </a>
                           </li>
                           <li className="list-styled-item">
@@ -208,7 +210,7 @@ export default function Header(){
                               className="list-styled-link"
                               href="./index-fashion.html"
                             >
-                              Fashion
+                              {t("Fashion")}
                             </a>
                           </li>
                           <li className="list-styled-item">
@@ -216,7 +218,7 @@ export default function Header(){
                               className="list-styled-link"
                               href="./index-boxed.html"
                             >
-                              Boxed
+                              {t("Boxed")}
                             </a>
                           </li>
                           <li className="list-styled-item">
@@ -224,7 +226,7 @@ export default function Header(){
                               className="list-styled-link"
                               href="./index-simple.html"
                             >
-                              Simple
+                              {t("Simple")}
                             </a>
                           </li>
                           <li className="list-styled-item">
@@ -314,12 +316,12 @@ export default function Header(){
                                   {/* Links */}
                                   <ul className="list-styled mb-6 mb-md-0 font-size-sm">
                                     <li className="list-styled-item">
-                                      <a
+                                      <Link
                                         className="list-styled-link"
-                                        href="./shop.html"
+                                        to="/shop"
                                       >
                                         All Clothing
-                                      </a>
+                                      </Link>
                                     </li>
                                     <li className="list-styled-item">
                                       <a
@@ -737,36 +739,36 @@ export default function Header(){
                             {/* Links */}
                             <ul className="list-styled mb-7 font-size-sm">
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./shopping-cart.html"
+                                  to="/shopping-cart"
                                 >
                                   Shopping Cart
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./checkout.html"
+                                  to="/checkout"
                                 >
                                   Checkout
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./order-completed.html"
+                                  to="/order-completed"
                                 >
                                   Order Completed
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./shipping-and-returns.html"
+                                  to="/shipping-and-return"
                                 >
                                   Shipping &amp; Returns
-                                </a>
+                                </Link>
                               </li>
                             </ul>
                             {/* Heading */}
@@ -774,52 +776,52 @@ export default function Header(){
                             {/* Links */}
                             <ul className="list-styled font-size-sm">
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-order.html"
+                                  to="/account"
                                 >
                                   Order
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-orders.html"
+                                  to="/account/order-detail"
                                 >
                                   Orders
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-wishlist.html"
+                                  to="/account/wishlist"
                                 >
                                   Wishlist
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-personal-info.html"
+                                  to="/account/personnal-info"
                                 >
                                   Personal Info
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-address.html"
+                                  to="/account/address"
                                 >
                                   Addresses
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-address-edit.html"
+                                  to="/account/address-edit"
                                 >
                                   Addresses: New
-                                </a>
+                                </Link>
                               </li>
                             </ul>
                           </div>
@@ -827,20 +829,20 @@ export default function Header(){
                             {/* Links */}
                             <ul className="list-styled mb-7 font-size-sm">
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-payment.html"
+                                  to="/account/payment"
                                 >
                                   Payment
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
-                                <a
+                                <Link
                                   className="list-styled-link"
-                                  href="./account-payment-edit.html"
+                                  to="/account/payment-edit"
                                 >
                                   Payment: New
-                                </a>
+                                </Link>
                               </li>
                               <li className="list-styled-item">
                                 <a
@@ -851,12 +853,9 @@ export default function Header(){
                                 </a>
                               </li>
                               <li className="list-styled-item">
-                                <a
-                                  className="list-styled-link"
-                                  href="./auth.html"
-                                >
+                                <Link className="list-styled-link" to="/auth">
                                   Auth
-                                </a>
+                                </Link>
                               </li>
                             </ul>
                             {/* Heading */}
@@ -944,43 +943,40 @@ export default function Header(){
                       <div className="card-body">
                         <ul className="list-styled font-size-sm">
                           <li className="list-styled-item">
-                            <a className="list-styled-link" href="./about.html">
+                            <Link className="list-styled-link" to="/about">
                               About
-                            </a>
+                            </Link>
                           </li>
                           <li className="list-styled-item">
-                            <a
-                              className="list-styled-link"
-                              href="./contact-us.html"
-                            >
+                            <Link className="list-styled-link" to="/contact">
                               Contact Us
-                            </a>
+                            </Link>
                           </li>
                           <li className="list-styled-item">
-                            <a
+                            <Link
                               className="list-styled-link"
-                              href="./store-locator.html"
+                              to="/store-location"
                             >
                               Store Locator
-                            </a>
+                            </Link>
                           </li>
                           <li className="list-styled-item">
-                            <a className="list-styled-link" href="./faq.html">
+                            <Link className="list-styled-link" to="/faq">
                               FAQ
-                            </a>
+                            </Link>
                           </li>
                           <li className="list-styled-item">
-                            <a
+                            <Link
                               className="list-styled-link"
-                              href="./coming-soon.html"
+                              to="/coming-soon"
                             >
                               Coming Soon
-                            </a>
+                            </Link>
                           </li>
                           <li className="list-styled-item">
-                            <a className="list-styled-link" href="./404.html">
+                            <Link className="list-styled-link" to="/404-error">
                               404
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -989,26 +985,26 @@ export default function Header(){
                 </li>
                 <li className="nav-item dropdown">
                   {/* Toggle */}
-                  <a className="nav-link" data-toggle="dropdown" href="#">
+                  <Link className="nav-link" data-toggle="dropdown" to="#">
                     Blog
-                  </a>
+                  </Link>
                   {/* Menu */}
                   <div className="dropdown-menu">
                     <div className="card card-lg">
                       <div className="card-body">
                         <ul className="list-styled font-size-sm">
                           <li className="list-styled-item">
-                            <a className="list-styled-link" href="./blog.html">
+                            <Link className="list-styled-link" to="/blog">
                               Blog
-                            </a>
+                            </Link>
                           </li>
                           <li className="list-styled-item">
-                            <a
+                            <Link
                               className="list-styled-link"
-                              href="./blog-post.html"
+                              to="/blog-post"
                             >
                               Blog Post
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -1033,14 +1029,14 @@ export default function Header(){
                   </a>
                 </li>
                 <li className="nav-item ml-lg-n4">
-                  <a className="nav-link" href="./account-orders.html">
+                  <Link className="nav-link" to="/account">
                     <i className="fe fe-user" />
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item ml-lg-n4">
-                  <a className="nav-link" href="./account-wishlist.html">
+                  <Link className="nav-link" to="/account/wishlist">
                     <i className="fe fe-heart" />
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item ml-lg-n4">
                   <a

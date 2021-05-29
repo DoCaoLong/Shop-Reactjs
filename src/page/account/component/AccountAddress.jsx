@@ -2,6 +2,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 export default function AccountAddress(){
     let { path } = useRouteMatch();
+    console.log(path);
     return (
       <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
         <div className="row">
@@ -73,11 +74,10 @@ export default function AccountAddress(){
             {/* Button */}
             <Link
               className="btn btn-block btn-lg btn-outline-border"
-              to={`${path}/address-edit`}
+              to={`${path}-edit`}
             >
               Add Address <i className="fe fe-plus" />
             </Link>
-           
           </div>
         </div>
       </div>

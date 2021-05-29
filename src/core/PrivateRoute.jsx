@@ -8,12 +8,9 @@ export function PrivateRoute(prop){
   let  {login} = useSelector((store) => store.auth);
 
     if(!login){
-        // setTimeout(()=>{
-        //     document.querySelector('.popup-login').style.display="flex"
-        // }, 0)
         return (
           <Route>
-            <Redirect to="/" />
+            <Redirect to="/auth" />
           </Route>
         );
     }

@@ -1,6 +1,15 @@
 import ReactDom from "react-dom";
+import { Link } from "react-router-dom";
 
 export function ShoppingCartModal() {
+  function close() {
+    //   document.querySelector("#modalShoppingCart").classList.remove('show');
+    //   document.querySelector("#body").removeAttribute("style");
+    //   document.querySelector("#modalShoppingCart").style.display="none"
+    //   document.querySelector(".modal-open").classList.remove("modal-open")
+    //   document.querySelector(".modal-backdrop").classList.remove("modal-backdrop");
+     
+  }
   return ReactDom.createPortal(
     <div
       className="modal fixed-right fade"
@@ -109,9 +118,14 @@ export function ShoppingCartModal() {
           </div>
           {/* Buttons */}
           <div className="modal-body">
-            <a className="btn btn-block btn-dark" href="./checkout.html">
+            <Link
+              className="btn btn-block btn-dark"
+              to="/checkout"
+              // data-dismiss="modal"
+              onClick={close}
+            >
               Continue to Checkout
-            </a>
+            </Link>
             <a
               className="btn btn-block btn-outline-dark"
               href="./shopping-cart.html"

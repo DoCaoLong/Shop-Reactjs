@@ -1,15 +1,16 @@
 import { LOGIN, LOGOUT, ERROR, UPDATE } from "../Type";
 import AuthApi from "../../service/AuthApi";
 
-export function LoginAciton(data, success) {
+export function LoginAciton(form) {
   return async (dispatch) => {
-    let res = await AuthApi.login(data);
+    let res = await AuthApi.login(form);
+    console.log("res :>> ", res);
     if (res.data) {
       dispatch({
         type: LOGIN,
         payload: res.data,
       });
-      success();
+      // success();
     } else if (res.error) {
       dispatch({
         type: ERROR,

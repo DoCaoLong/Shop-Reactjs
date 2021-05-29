@@ -8,7 +8,7 @@ import Account from './page/account';
 import Error404 from './page/404';
 import Auth from './page/auth';
 import BlogPost from './page/blogPost';
-import Blog from './page/blog/blog';
+import Blog from './page/blog';
 import Checkout from './page/checkout';
 import CommingSoon from './page/commingSoon';
 import Contact from './page/contactUs';
@@ -19,6 +19,7 @@ import ShippingAndReturn from './page/shippingAndReturn';
 import ShoppingCart from './page/shoppingCart';
 import Shop from './page/shop';
 import StoreLocation from './page/storeLocation';
+import { PrivateRoute } from "./core/PrivateRoute";
 function App() {
   return (
     <Provider store={store}>

@@ -1,4 +1,8 @@
+import { Link, useRouteMatch } from "react-router-dom";
+
 export default function AccountPayment(){
+  let {path} = useRouteMatch()
+  console.log(path);
     return (
       <div className="col-12 col-md-9 col-lg-8 offset-lg-1">
         <div className="row">
@@ -44,12 +48,12 @@ export default function AccountPayment(){
           </div>
           <div className="col-12">
             {/* Button */}
-            <a
+            <Link
               className="btn btn-block btn-lg btn-outline-border"
-              href="account-payment-edit.html"
+              to={`${path}-edit`}
             >
               Add Payment Method <i className="fe fe-plus" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,13 @@
-import {Link, NavLink, useRouteMatch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, NavLink, useRouteMatch } from "react-router-dom";
+import { LogoutAciton } from "../../../redux/actions/AuthAction";
 
 export default function AccountNav() {
-    let {path} = useRouteMatch(); 
+  let { path } = useRouteMatch();
+  let dispatch = useDispatch();
+  function logout() {
+    dispatch(LogoutAciton());
+  }
   return (
     <nav className="mb-10 mb-md-0">
       <div className="list-group list-group-sm list-group-strong list-group-flush-x">
@@ -39,6 +45,7 @@ export default function AccountNav() {
         <Link
           className="list-group-item list-group-item-action dropright-toggle"
           to="#"
+          onClick={logout()}
         >
           Logout
         </Link>

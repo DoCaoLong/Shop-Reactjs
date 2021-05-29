@@ -27,5 +27,5 @@ const enhancer = composeEnhancers(
 );
 
 let store = createStore(reducer, enhancer);
-console.log(store);
+// console.log(store);
 export default store

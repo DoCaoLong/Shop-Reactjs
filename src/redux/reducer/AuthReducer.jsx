@@ -2,8 +2,10 @@ import { ERROR, LOGIN, LOGOUT, UPDATE } from "../Type";
 
 let initState = {
   login: JSON.parse(localStorage.getItem("login")),
+
   loginError: "",
 };
+  console.log(initState);
 export default function auth(state = initState, action) {
   switch (action.type) {
     case LOGIN:
@@ -33,5 +35,4 @@ export default function auth(state = initState, action) {
       return state;
   }
   // console.log(action);
-  return state;
 }

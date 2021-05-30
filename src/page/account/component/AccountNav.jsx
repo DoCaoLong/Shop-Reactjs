@@ -44,8 +44,8 @@ export default function AccountNav() {
         </NavLink>
         <Link
           className="list-group-item list-group-item-action dropright-toggle"
-          to="#"
-          onClick={logout()}
+          // to="#"
+          onClick={logout}
         >
           Logout
         </Link>

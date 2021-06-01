@@ -24,22 +24,27 @@ export default function LoginAuth() {
           max: 32,
         },
       },
+      message: {
+        email: {
+          required: "Email không được bỏ trống",
+          pattern: "Email không đúng định dạng example@gmail.com",
+        },
+        password: {
+          required: "Mật khẩu không được bỏ trống"
+        },
+      },
     }
   );
 
   // tác động lên store thì dùng dispatch
   let dispatch = useDispatch();
 
-  
-
 //   let st = useSelector((store) => store);
 //   console.log(st);
 
   async function loginHandle(e) {
     e.preventDefault();
-
     let errObj = check();
-
     if (Object.keys(errObj).length === 0) {
       dispatch(LoginAciton(form));
     }
@@ -131,7 +136,6 @@ export default function LoginAuth() {
                 type="submit"
                 // to="/account"
                 to=""
-
               >
                 Sign In
               </Link>

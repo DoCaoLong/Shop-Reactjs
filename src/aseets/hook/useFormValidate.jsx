@@ -20,6 +20,7 @@ export default function useFormValidate(initialForm, validate) {
 	}
 	
 	function check() {
+		let checkPassword="";
 		let errObj = {};
 		let { rule, message } = validate;
 		if(!message){
@@ -55,6 +56,14 @@ export default function useFormValidate(initialForm, validate) {
 			if(r.max){
 				if(form[i].length > r.max){
 					errObj[i] = m?.max || `Mật khẩu không được lớn hơn ${r.max} ký tự`;
+				}
+			}
+			if(r.check){
+				checkPassword = form[i];
+			}
+			if(r.confirm_password){
+				if(checkPassword !== form[i]){
+					errObj[i] = "Mật khẩu nhập lại không đúng";
 				}
 			}
 		}

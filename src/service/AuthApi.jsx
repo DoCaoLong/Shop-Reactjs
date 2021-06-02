@@ -16,6 +16,7 @@ const AuthApi = {
     }
     return true;
   },
+  
   login(form) {
     return fetch(`${endpoint}/login`, {
       method: "POST",
@@ -51,6 +52,7 @@ const AuthApi = {
       },
     }).then((res) =>
       tokenHandle(res, () => {
+    let token = JSON.parse(localStorage.getItem("token"))?.accessToken;
         return fetch(`${endpoint}/update-profile`, {
           method: "POST",
           body: JSON.stringify(data),
@@ -70,8 +72,6 @@ export async function tokenHandle(res, callback) {
   }
   if (res.status === 403) {
     await AuthApi.refreshToken();
-    let token = JSON.parse(localStorage.getItem("token"))?.accessToken;
-    // console.log(token);
      return callback();
   }
 }

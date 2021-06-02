@@ -7,19 +7,19 @@ export default function AccountPesonalInfo(){
   let { login } = useSelector((store) => store.auth);
   let { form, error, inputChange, check } = useFormValidate(
     {
-      name: login.name,
-      lastname: login.last_name,
+      first_name: login.first_name,
+      last_name: login.last_name,
       email: login.email,
-      // password: "",
-      // confirm_password: "",
+      password: "",
+      confirm_password: "",
     },
     {
       rule: {
-        name: {
+        first_name: {
           required: true,
-          pattern: "name",
+          pattern: "nameVN",
         },
-        lastname: {
+        last_name: {
           required: true,
           pattern: "name",
         },
@@ -27,23 +27,23 @@ export default function AccountPesonalInfo(){
           required: true,
           pattern: "email",
         },
-        // password: {
-        //   required: true,
-        //   min: 6,
-        //   max: 32,
-        //   check: "password",
-        // },
-        // confirm_password: {
-        //   required: true,
-        //   confirm_password: true,
-        // },
+        password: {
+          required: true,
+          min: 6,
+          max: 32,
+          check: "password",
+        },
+        confirm_password: {
+          required: true,
+          confirm_password: true,
+        },
       },
       message: {
-        name: {
+        first_name: {
           required: "Tên không được bỏ trống",
-          pattern: "Tên được viết bằng chữ in hoặc chữ thường",
+          pattern: "Tên không đúng định dạng ",
         },
-        lastname: {
+        last_name: {
           required: "Họ không được bỏ trống",
           pattern: "Họ được viết bằng chữ in hoặc chữ thường",
         },
@@ -51,12 +51,12 @@ export default function AccountPesonalInfo(){
           required: "Email không được bỏ trống",
           pattern: "Email không đúng định dạng example@gmail.com",
         },
-        // password: {
-        //   required: "Mật khẩu không được bỏ trống",
-        // },
-        // confirm_password: {
-        //   required: "Vui lòng nhập lại mật khẩu",
-        // },
+        password: {
+          required: "Mật khẩu không được bỏ trống",
+        },
+        confirm_password: {
+          required: "Vui lòng nhập lại mật khẩu",
+        },
       },
     }
   );
@@ -85,12 +85,14 @@ export default function AccountPesonalInfo(){
                 type="text"
                 placeholder="First Name *"
                 defaultValue="Daniel"
-                name="name"
-                value={form.name}
+                name="first_name"
+                value={form.first_name}
                 onChange={inputChange}
                 required
               />
-              {error.name && <p className="text-error">{error.name}</p>}
+              {error.first_name && (
+                <p className="text-error">{error.first_name}</p>
+              )}
             </div>
           </div>
           <div className="col-12 col-md-6">
@@ -103,12 +105,14 @@ export default function AccountPesonalInfo(){
                 type="text"
                 placeholder="Last Name *"
                 defaultValue="Robinson"
-                name="lastname"
-                value={form.lastname}
+                name="last_name"
+                value={form.last_name}
                 onChange={inputChange}
                 required
               />
-              {error.lastname && <p className="text-error">{error.lastname}</p>}
+              {error.last_name && (
+                <p className="text-error">{error.last_name}</p>
+              )}
             </div>
           </div>
           <div className="col-12">
@@ -137,9 +141,12 @@ export default function AccountPesonalInfo(){
                 className="form-control form-control-sm"
                 id="accountPassword"
                 type="password"
+                name="password"
+                value={form.password}
+                onChange={inputChange}
                 placeholder="Current Password *"
-                // required
               />
+              {error.password && <p className="text-error">{error.password}</p>}
             </div>
           </div>
           <div className="col-12 col-md-6">
@@ -150,9 +157,14 @@ export default function AccountPesonalInfo(){
                 className="form-control form-control-sm"
                 id="AccountNewPassword"
                 type="password"
+                name="confirm_password"
+                value={form.confirm_password}
+                onChange={inputChange}
                 placeholder="New Password *"
-                // required
               />
+              {error.confirm_password && (
+                <p className="text-error">{error.confirm_password}</p>
+              )}
             </div>
           </div>
           <div className="col-12 col-lg-6">

@@ -20,33 +20,44 @@ import ShoppingCart from './page/shoppingCart';
 import Shop from './page/shop';
 import StoreLocation from './page/storeLocation';
 import { PrivateRoute } from "./core/PrivateRoute";
+import TranslateProvider from './core/Translate';
+import vi from './translate/vi.json';
+import japan from './translate/japan.json';
+
+let translate = {
+  en: {},
+  vn: vi,
+  japan: japan,
+};
 function App() {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <MainLayout>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/account" component={Account} />
-            <Route path="/auth" component={Auth} />
-            <Route path="/blog-post" component={BlogPost} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/checkout" component={Checkout} />
-            <Route path="/coming-soon" component={CommingSoon} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/faq" component={Faq} />
-            <Route path="/order-completed" component={OrderCompleted} />
-            <Route path="/product" component={Product} />
-            <Route path="/shipping-and-return" component={ShippingAndReturn} />
-            <Route path="/shop" component={Shop} />
-            <Route path="/shopping-cart" component={ShoppingCart} />
-            <Route path="/store-location" component={StoreLocation} />
-            <Route component={Error404} />
-          </Switch>
-        </MainLayout>
-      </BrowserRouter>
-    </Provider>
+    <TranslateProvider translate={ translate }>
+      <Provider store={store}>
+        <BrowserRouter>
+          <MainLayout>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <PrivateRoute path="/account" component={Account} />
+              <Route path="/auth" component={Auth} />
+              <Route path="/blog-post" component={BlogPost} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/checkout" component={Checkout} />
+              <Route path="/coming-soon" component={CommingSoon} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/faq" component={Faq} />
+              <Route path="/order-completed" component={OrderCompleted} />
+              <Route path="/product" component={Product} />
+              <Route path="/shipping-and-return" component={ShippingAndReturn}/>
+              <Route path="/shop" component={Shop} />
+              <Route path="/shopping-cart" component={ShoppingCart} />
+              <Route path="/store-location" component={StoreLocation} />
+              <Route component={Error404} />
+            </Switch>
+          </MainLayout>
+        </BrowserRouter>
+      </Provider>
+    </TranslateProvider>
   );
 }
 

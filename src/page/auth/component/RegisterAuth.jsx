@@ -6,19 +6,19 @@ export default function RegisterAuth(){
   let { registerError } = useSelector((store) => store.auth);
   let { form, error, inputChange, check } = useFormValidate(
     {
-      name: "",
-      lastname: "",
+      first_name: "",
+      last_name: "",
       email: "",
       password: "",
       confirm_password: "",
     },
     {
       rule: {
-        name: {
+        first_name: {
           required: true,
           pattern: "name",
         },
-        lastname: {
+        last_name: {
           required: true,
           pattern: "name",
         },
@@ -36,13 +36,13 @@ export default function RegisterAuth(){
           required: true,
           confirm_password: true,
         },
-      },
+       },
       message: {
-        name: {
+        first_name: {
           required: "Tên không được bỏ trống",
           pattern: "Tên được viết bằng chữ in hoặc chữ thường",
         },
-        lastname: {
+        last_name: {
           required: "Họ không được bỏ trống",
           pattern: "Họ được viết bằng chữ in hoặc chữ thường",
         },
@@ -90,12 +90,14 @@ export default function RegisterAuth(){
                   id="registerFirstName"
                   type="text"
                   placeholder="First Name *"
-                  name="name"
-                  value={form.name}
+                  name="first_name"
+                  value={form.first_name}
                   onChange={inputChange}
                   required
                 />
-                {error.name && <p className="text-error">{error.name}</p>}
+                {error.first_name && (
+                  <p className="text-error">{error.first_name}</p>
+                )}
               </div>
             </div>
             <div className="col-12">
@@ -108,14 +110,14 @@ export default function RegisterAuth(){
                   className="form-control form-control-sm"
                   id="registerLastName"
                   type="text"
-                  name="lastname"
-                  value={form.lastname}
+                  name="last_name"
+                  value={form.last_name}
                   onChange={inputChange}
                   placeholder="Last Name *"
                   required
                 />
-                {error.lastname && (
-                  <p className="text-error">{error.lastname}</p>
+                {error.last_name && (
+                  <p className="text-error">{error.last_name}</p>
                 )}
               </div>
             </div>

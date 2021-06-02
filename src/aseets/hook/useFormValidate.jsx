@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 let namePattern = /^[A-Za-z\s]+$/i,
-  phonePattern = /(84|0[3|5|7|8|9])+([0-9]{8})\b/,
-  emailPattern =/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i,
-  webPattern =/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/i,
-  facePattern =/(?:http:\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(\d.*))?([\w\-]*)?/,
-  skypePattern =/^[a-z][a-z0-9\.,\-_]{5,31}$/i;
+	nameVnPattern = /[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u,
+	phonePattern = /(84|0[3|5|7|8|9])+([0-9]{8})\b/,
+	emailPattern =/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/i,
+	webPattern =/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/i,
+	facePattern =/(?:http:\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(\d.*))?([\w\-]*)?/,
+	skypePattern =/^[a-z][a-z0-9\.,\-_]{5,31}$/i;
 
 export default function useFormValidate(initialForm, validate) {
 	let [form, setForm] = useState(initialForm);
@@ -39,6 +40,7 @@ export default function useFormValidate(initialForm, validate) {
 				let { pattern } = r;
 				// replace(/ +/g, " ");
 				if (pattern === "name") pattern = namePattern;
+				if (pattern === "nameVN") pattern = nameVnPattern;
 				if (pattern === "email") pattern = emailPattern;
 				if (pattern === "phone") pattern = phonePattern;
 				if (pattern === "url") pattern = webPattern;

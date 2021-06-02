@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import useTranslate from "../../core/useTranslate"
+import {useTranslate} from "../../core/Translate"
 export default function Header(){
-  let {t} =  useTranslate()
+  let {t , selectLang, lang} =  useTranslate()
+  function changeLang(lan){
+    selectLang(lan)
+  }
     return (
       <>
         {/* NAVBAR */}
@@ -32,7 +35,7 @@ export default function Header(){
               <ul className="nav nav-divided navbar-nav mr-auto">
                 <li className="nav-item dropdown">
                   {/* Toggle */}
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
                     data-toggle="dropdown"
                     href="#"
@@ -43,7 +46,7 @@ export default function Header(){
                       alt="..."
                     />{" "}
                     {t("United States")}
-                  </a>
+                  </Link>
                   {/* Menu */}
                   <div className="dropdown-menu minw-0">
                     <a className="dropdown-item" href="#!">
@@ -75,13 +78,13 @@ export default function Header(){
                 </li>
                 <li className="nav-item dropdown">
                   {/* Toggle */}
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
                     data-toggle="dropdown"
                     href="#"
                   >
                     USD
-                  </a>
+                  </Link>
                   {/* Menu */}
                   <div className="dropdown-menu minw-0">
                     <a className="dropdown-item" href="#!">
@@ -94,24 +97,40 @@ export default function Header(){
                 </li>
                 <li className="nav-item dropdown">
                   {/* Toggle */}
-                  <a
+                  <Link
                     className="nav-link dropdown-toggle"
                     data-toggle="dropdown"
                     href="#"
                   >
-                    English
-                  </a>
+                    {lang === "en"
+                      ? "English"
+                      : lang === "japan"
+                      ? "Japan"
+                      : "Tiếng việt"}
+                  </Link>
                   {/* Menu */}
                   <div className="dropdown-menu minw-0">
-                    <a className="dropdown-item" href="#">
+                    <Link
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => changeLang("en")}
+                    >
                       English
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      French
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      German
-                    </a>
+                    </Link>
+                    <Link
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => changeLang("vn")}
+                    >
+                      Tiếng Việt
+                    </Link>
+                    <Link
+                      className="dropdown-item"
+                      href="#"
+                      onClick={(e) => changeLang("japan")}
+                    >
+                      Japan
+                    </Link>
                   </div>
                 </li>
               </ul>
@@ -124,7 +143,7 @@ export default function Header(){
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/faq">
-                    FAQ
+                    {t("FAQ")}
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -261,7 +280,7 @@ export default function Header(){
                 <li className="nav-item dropdown position-static">
                   {/* Toggle */}
                   <a className="nav-link" data-toggle="dropdown" href="#">
-                    Catalog
+                    {t("Catalog")}
                   </a>
                   {/* Menu */}
                   <div className="dropdown-menu w-100">
@@ -633,9 +652,9 @@ export default function Header(){
                 </li>
                 <li className="nav-item dropdown">
                   {/* Toggle */}
-                  <a className="nav-link" data-toggle="dropdown" href="#">
-                    Shop
-                  </a>
+                  <Link className="nav-link" data-toggle="dropdown" href="#">
+                    {t("Shop")}
+                  </Link>
                   {/* Menu */}
                   <div className="dropdown-menu" style={{ minWidth: "650px" }}>
                     <div className="card card-lg">
@@ -934,9 +953,9 @@ export default function Header(){
                 </li>
                 <li className="nav-item dropdown">
                   {/* Toggle */}
-                  <a className="nav-link" data-toggle="dropdown" href="#">
-                    Pages
-                  </a>
+                  <Link className="nav-link" data-toggle="dropdown" href="#">
+                    {t("Pages")}
+                  </Link>
                   {/* Menu */}
                   <div className="dropdown-menu">
                     <div className="card card-lg">
@@ -999,10 +1018,7 @@ export default function Header(){
                             </Link>
                           </li>
                           <li className="list-styled-item">
-                            <Link
-                              className="list-styled-link"
-                              to="/blog-post"
-                            >
+                            <Link className="list-styled-link" to="/blog-post">
                               Blog Post
                             </Link>
                           </li>
@@ -1012,9 +1028,9 @@ export default function Header(){
                   </div>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="docs/getting-started.html">
-                    Docs
-                  </a>
+                  <Link className="nav-link" href="docs/getting-started.html">
+                    {t("Docs")}
+                  </Link>
                 </li>
               </ul>
               {/* Nav */}

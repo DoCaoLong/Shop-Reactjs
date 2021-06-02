@@ -10,15 +10,19 @@ export default function auth(state = initState, action) {
   switch (action.type) {
     case LOGIN:
       localStorage.setItem("login", JSON.stringify(action.payload));
+      localStorage.setItem("token", JSON.stringify(action.payload?.token));
       return {
         ...state,
         login: action.payload,
       };
     case LOGOUT:
       localStorage.setItem("login", false);
+      localStorage.setItem("token", false);
       return {
         ...state,
         login: false,
+        loginError: "",
+        registerError:""
       };
     case REGISTER:
       localStorage.setItem("data", JSON.stringify(action.payload));

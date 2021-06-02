@@ -40,7 +40,7 @@ export default function AccountPesonalInfo(){
       },
       message: {
         first_name: {
-          required: "Tên không được bỏ trống",
+                  required: "Tên không được bỏ trống",
           pattern: "Tên không đúng định dạng ",
         },
         last_name: {

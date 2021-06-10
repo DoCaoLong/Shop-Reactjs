@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Link, Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { RouteWithSubRoutes } from '../../core/RouterConfig';
 import AccountAddress from './component/AccountAddress';
 import AccountAddressEdit from './component/AccountAddressEdit';
 import AccountNav from './component/AccountNav';
@@ -10,12 +11,9 @@ import AccountPaymentEdit from './component/AccountPaymentEdit';
 import AccountPesonalInfo from './component/AccountPersonalInfo';
 import AccountWishlist from './component/AccountWishlist';
 
-export default function Account() {
-	let { path } = useRouteMatch();
-	let { login } = useSelector((store) => store.auth);
-	if (!login) {
-		return <Redirect to="/auth" />;
-	}
+export default function Account({ routes }) {
+	let path = useRouteMatch();
+
 	return (
 		<>
 			{/* BREADCRUMB */}
@@ -51,14 +49,9 @@ export default function Account() {
 						</div>
 
 						<Switch>
-							<Route path={`${path}/wishlist`} component={AccountWishlist} />
-							<Route path={`${path}/personnal-info`} component={AccountPesonalInfo} />
-							<Route path={`${path}/payment`} component={AccountPayment} />
-							<Route path={`${path}/order-detail`} component={AccountOrderDetail} />
-							<Route path={`${path}/address`} component={AccountAddress} />
-							<Route path={`${path}/address-edit`} component={AccountAddressEdit} />
-							<Route path={`${path}/payment-edit`} component={AccountPaymentEdit} />
-							<Route component={AccountOrder} />
+							{routes.map((route, i) => (
+								<RouteWithSubRoutes key={i} {...route} />
+							))}
 						</Switch>
 					</div>
 				</div>

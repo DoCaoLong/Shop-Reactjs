@@ -5,8 +5,31 @@ import Tags from './component/Tags';
 import ProductsShop from './component/ProductsShop';
 import Filters from './component/Filters';
 import Promo from './component/Promo';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import ProductAction from '../../redux/actions/ProductAction';
+import { convertToQueryToStr } from '../../utils';
+import { convertStrToQuery } from '../../utils';
 
 export default function Shop() {
+	let dispatch = useDispatch();
+
+	let { product, paginate } = useSelector((store) => store.product);
+	let category = useSelector((store) => store.product);
+
+	let url = convertToQueryToStr();
+	let renderProduct = convertStrToQuery(url);
+
+	// renderproduct change
+	useEffect(() => {
+		dispatch(ProductAction(renderProduct));
+		// dispatch(CategoryAction());
+	}, [renderProduct]);
+
+	// console.log('product indexx', product);
+	// console.log('category indexx', category);
+	console.log('paginate indexx', paginate);
+
 	return (
 		<>
 			{/* PROMO */}
@@ -27,9 +50,9 @@ export default function Shop() {
 							{/* Tags */}
 							{/* <Tags /> */}
 							{/* Products */}
-							<ProductsShop />
+							<ProductsShop product={product} />
 							{/* Pagination */}
-							<Pagination />
+							<Pagination paginate={paginate} />
 						</div>
 					</div>
 				</div>

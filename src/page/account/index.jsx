@@ -1,19 +1,8 @@
-import { useSelector } from 'react-redux';
-import { Link, Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Link, Switch, useRouteMatch } from 'react-router-dom';
 import { RouteWithSubRoutes } from '../../core/RouterConfig';
-import AccountAddress from './component/AccountAddress';
-import AccountAddressEdit from './component/AccountAddressEdit';
 import AccountNav from './component/AccountNav';
-import AccountOrder from './component/AccountOrder';
-import AccountOrderDetail from './component/AccountOrderDetail';
-import AccountPayment from './component/AccountPayment';
-import AccountPaymentEdit from './component/AccountPaymentEdit';
-import AccountPesonalInfo from './component/AccountPersonalInfo';
-import AccountWishlist from './component/AccountWishlist';
 
 export default function Account({ routes }) {
-	let path = useRouteMatch();
-
 	return (
 		<>
 			{/* BREADCRUMB */}

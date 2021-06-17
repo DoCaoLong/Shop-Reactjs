@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 export default function Pagination({}) {
+	let match = useRouteMatch();
 	let { paginate } = useSelector((store) => store.product);
 	// console.log('paginate', paginate);
 	// console.log(currentPage, totalPage);
@@ -9,7 +10,7 @@ export default function Pagination({}) {
 	if (start <= 0) {
 		start = 1;
 	}
-	let end = start + 4;
+	let end = paginate.currentPage + 2;
 	if (end > paginate.totalPage) {
 		end = paginate.totalPage;
 	}
@@ -17,8 +18,8 @@ export default function Pagination({}) {
 		let array = [];
 		for (let i = start; i <= end; i++) {
 			array.push(
-				<li className={`page-item ${paginate?.currentPage === i && 'active'}`}>
-					<Link className="page-link page-link-arrow" to={`/shop?page=${i}`}>
+				<li className={`page-item ${paginate?.currentPage === i ? 'active' : ''}`}>
+					<Link className="page-link page-link-arrow" to={`${match.url}?page=${i}`}>
 						{i}
 					</Link>
 				</li>
@@ -38,7 +39,7 @@ export default function Pagination({}) {
 					<li className="page-item">
 						<Link
 							className="page-link page-link-arrow"
-							to={`/shop?page=${paginate.currentPage - 1}`}
+							to={`${match?.url}?page=${paginate.currentPage - 1}`}
 						>
 							<i className="fa fa-caret-left" />
 						</Link>
@@ -51,7 +52,7 @@ export default function Pagination({}) {
 					<li className="page-item">
 						<Link
 							className="page-link page-link-arrow"
-							to={`/shop?page=${paginate.currentPage + 1}`}
+							to={`${match?.url}?page=${paginate.currentPage + 1}`}
 						>
 							<i className="fa fa-caret-right" />
 						</Link>

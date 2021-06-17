@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, createStore, compose } from 'redux';
 import AuthReducer from './reducer/AuthReducer';
 import ProductReducer from './reducer/ProductReducer';
 
-let reducer = combineReducers({
+let rootReducer = combineReducers({
 	auth: AuthReducer,
 	product: ProductReducer,
 });
@@ -28,6 +28,6 @@ const enhancer = composeEnhancers(
 	// other store enhancers if any
 );
 
-let store = createStore(reducer, enhancer);
+let store = createStore(rootReducer, enhancer);
 // console.log(store);
 export default store;

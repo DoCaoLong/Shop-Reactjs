@@ -6,3 +6,4 @@ export const REGISTER = 'REGISTER';
 export const ERROR_REGISTER = 'ERROR_REGISTER';
 export const PRODUCTS = 'PRODUCTS';
 export const CATEGORY = 'CATEGORY';
+export const LOADING = 'LOADING';

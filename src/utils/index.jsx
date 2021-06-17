@@ -1,5 +1,5 @@
 export function currency(number) {
-	return new Intl.NumberFormat('vn').format(number) + 'vnđ';
+	return new Intl.NumberFormat('vn').format(number) + ' vnđ';
 }
 
 export function convertToQueryToStr() {

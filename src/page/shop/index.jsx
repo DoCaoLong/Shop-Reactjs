@@ -10,13 +10,12 @@ import { useEffect } from 'react';
 import ProductAction from '../../redux/actions/ProductAction';
 import { convertToQueryToStr } from '../../utils';
 import { convertStrToQuery } from '../../utils';
+import { LOADING } from '../../redux/Type';
 
 export default function Shop() {
 	let dispatch = useDispatch();
-
-	let { product, paginate } = useSelector((store) => store.product);
+	let { product, paginate, loading } = useSelector((store) => store.product);
 	let category = useSelector((store) => store.product);
-
 	let url = convertToQueryToStr();
 	let renderProduct = convertStrToQuery(url);
 
@@ -24,11 +23,11 @@ export default function Shop() {
 	useEffect(() => {
 		dispatch(ProductAction(renderProduct));
 		// dispatch(CategoryAction());
+		dispatch({
+			type: LOADING,
+			payload: loading,
+		});
 	}, [renderProduct]);
-
-	// console.log('product indexx', product);
-	// console.log('category indexx', category);
-	console.log('paginate indexx', paginate);
 
 	return (
 		<>
@@ -44,11 +43,11 @@ export default function Shop() {
 						</div>
 						<div className="col-12 col-md-8 col-lg-9">
 							{/* Slider */}
-							{/* <Slider /> */}
+							<Slider />
 							{/* Header */}
-							{/* <HeaderShop /> */}
+							<HeaderShop />
 							{/* Tags */}
-							{/* <Tags /> */}
+							<Tags />
 							{/* Products */}
 							<ProductsShop product={product} />
 							{/* Pagination */}

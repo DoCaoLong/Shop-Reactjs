@@ -1,7 +1,7 @@
 import ShopApi from '../../service/ShopAip';
 import { PRODUCTS, CATEGORY } from '../Type';
 
-export default function ProductAction(renderProduct) {
+export function ProductAction(renderProduct) {
 	return async (dispatch) => {
 		let res = await ShopApi.shopProduct(renderProduct);
 		// console.log('res', res);
@@ -18,6 +18,8 @@ export default function ProductAction(renderProduct) {
 export function CategoryAction() {
 	return async (dispatch) => {
 		let res = await ShopApi.categoryProduct();
+		console.log('res category', res);
+
 		if (res) {
 			dispatch({
 				type: CATEGORY,

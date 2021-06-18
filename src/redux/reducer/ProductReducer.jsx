@@ -1,12 +1,10 @@
-import { CATEGORY } from '../Type';
-import { PRODUCTS } from '../Type';
-import { LOADING } from '../Type';
+import { CATEGORY, PRODUCTS, LOADING } from '../Type';
 
 let init = {
 	product: [],
 	category: [],
 	paginate: [],
-	loading: true,
+	loading: false,
 };
 
 export default function ProductReducer(state = init, action) {
@@ -16,16 +14,17 @@ export default function ProductReducer(state = init, action) {
 				...state,
 				product: action.payload.data,
 				paginate: action.payload.paginate,
+				loading: false,
 			};
 		case CATEGORY:
 			return {
 				...state,
-				category: action.payload.data,
+				category: action.payload,
 			};
 		case LOADING:
 			return {
 				...state,
-				loading: false,
+				loading: true,
 			};
 		default:
 			return state;

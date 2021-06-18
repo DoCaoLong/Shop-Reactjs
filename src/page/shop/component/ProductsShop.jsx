@@ -1,7 +1,7 @@
 import ProductItem from './ProductItem';
 
-export default function ProductsShop({ product, category }) {
-	console.log('product', product);
+export default function ProductsShop({ product }) {
+	// console.log('product', product);
 	return (
 		<div className="row">
 			{product?.map((e) => (

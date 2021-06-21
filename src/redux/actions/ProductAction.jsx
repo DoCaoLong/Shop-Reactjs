@@ -1,5 +1,5 @@
 import ShopApi from '../../service/ShopAip';
-import { PRODUCTS, CATEGORY } from '../Type';
+import { PRODUCTS, CATEGORY, VIEW } from '../Type';
 
 export function ProductAction(renderProduct) {
 	return async (dispatch) => {
@@ -27,4 +27,8 @@ export function CategoryAction() {
 			});
 		}
 	};
+}
+export function ViewAction(prop) {
+	// console.log('prop :>> ', prop);
+	return { type: VIEW, payload: prop };
 }

@@ -5,6 +5,7 @@ import { convertToQueryToStr } from '../../../utils';
 export default function Category({ category }) {
 	// console.log('category ttiler:>> ', category.title);
 	let url = convertToQueryToStr();
+	// console.log('url :>> ', url);
 	let patch = useRouteMatch();
 	// console.log('patch :>> ', patch);
 	// let StrtoQue = convertStrToQuery(url);

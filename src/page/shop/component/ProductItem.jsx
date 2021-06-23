@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { currency } from '../../../utils';
 import { Skeleton } from '@material-ui/lab';
 import { ViewAction } from '../../../redux/actions/ProductAction';
-import { Link } from 'react-router-dom';
+import { AddCartAction } from '../../../redux/actions/CartAction';
 export default function ProductItem(prop) {
 	let { name, thumbnail_url, price } = prop;
 	// console.log('prop item :>> ', prop);
@@ -11,6 +11,10 @@ export default function ProductItem(prop) {
 	function HandleGetView() {
 		dispatch(ViewAction({ ...prop }));
 	}
+	function HandleAddCart() {
+		dispatch(AddCartAction({ ...prop }));
+	}
+
 	return (
 		<div className="col-6 col-md-4">
 			{/* Card */}
@@ -27,15 +31,8 @@ export default function ProductItem(prop) {
 					{loading ? (
 						<Skeleton variant="rect" width={254} height={254} />
 					) : (
-						<Link className="card-img-hover" href="product.html">
-							<img
-								onClick={HandleGetView}
-								className="card-img-top card-img-back"
-								src={thumbnail_url}
-								data-toggle="modal"
-								data-target="#modalProduct"
-								alt="..."
-							/>
+						<a className="card-img-hover">
+							<img className="card-img-top card-img-back" src={thumbnail_url} alt="..." />
 							<img
 								onClick={HandleGetView}
 								className="card-img-top card-img-front"
@@ -44,7 +41,7 @@ export default function ProductItem(prop) {
 								data-target="#modalProduct"
 								alt="..."
 							/>
-						</Link>
+						</a>
 					)}
 					{/* Actions */}
 					{loading ? (
@@ -62,7 +59,11 @@ export default function ProductItem(prop) {
 								</button>
 							</span>
 							<span className="card-action">
-								<button className="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+								<button
+									onClick={HandleAddCart}
+									className="btn btn-xs btn-circle btn-white-primary"
+									data-toggle="button"
+								>
 									<i className="fe fe-shopping-cart" />
 								</button>
 							</span>

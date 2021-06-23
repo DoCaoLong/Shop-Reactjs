@@ -7,7 +7,7 @@ let initState = {
 	loginError: '',
 	registerError: '',
 };
-console.log(initState);
+// console.log(initState);
 export default function auth(state = initState, action) {
 	switch (action.type) {
 		case LOGIN:

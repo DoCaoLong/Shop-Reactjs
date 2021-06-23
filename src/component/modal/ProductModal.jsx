@@ -1,8 +1,15 @@
 import ReactDOM from 'react-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddCartAction } from '../../redux/actions/CartAction';
 import { currency } from '../../utils';
 export function ProductModal() {
 	let { productDetail } = useSelector((store) => store.product);
+	// console.log('productDetail :>> ', productDetail);
+	let dispatch = useDispatch();
+
+	function HandleAddCart() {
+		dispatch(AddCartAction({ ...productDetail }));
+	}
 	return ReactDOM.createPortal(
 		<div className="modal fade" id="modalProduct" tabIndex={-1} role="dialog" aria-hidden="true">
 			<div className="modal-dialog modal-dialog-centered modal-xl" role="document">
@@ -36,7 +43,9 @@ export function ProductModal() {
 										{/* Label */}
 										<p>
 											Color:
-											<strong id="modalProductColorCaption">{}</strong>
+											<strong id="modalProductColorCaption">
+												{/* {productDetail?.configurable_options[0]?.values[0]?.label} */}
+											</strong>
 										</p>
 										{/* Radio */}
 										<div className="mb-8 ml-n1">
@@ -309,7 +318,7 @@ export function ProductModal() {
 											</div>
 											<div className="col-12 col-lg">
 												{/* Submit */}
-												<button type="submit" className="btn btn-block btn-dark mb-2">
+												<button onClick={HandleAddCart} className="btn btn-block btn-dark mb-2">
 													Add to Cart <i className="fe fe-shopping-cart ml-2" />
 												</button>
 											</div>

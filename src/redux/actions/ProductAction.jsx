@@ -1,4 +1,4 @@
-import ShopApi from '../../service/ShopAip';
+import ShopApi from '../../service/ShopApi';
 import { PRODUCTS, CATEGORY, VIEW } from '../Type';
 
 export function ProductAction(renderProduct) {
@@ -18,7 +18,6 @@ export function ProductAction(renderProduct) {
 export function CategoryAction() {
 	return async (dispatch) => {
 		let res = await ShopApi.categoryProduct();
-		console.log('res category', res);
 
 		if (res) {
 			dispatch({
@@ -29,6 +28,6 @@ export function CategoryAction() {
 	};
 }
 export function ViewAction(prop) {
-	// console.log('prop :>> ', prop);
+	// console.log('prop action:>> ', prop);
 	return { type: VIEW, payload: prop };
 }

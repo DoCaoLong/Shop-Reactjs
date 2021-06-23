@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "name": "CFD",
+      "address": "11 Phan Kế Bính, Đa Kao, Quận 1, Thành phố Hồ Chí Minh",
+      "phone": "0123456789",
+      "store_hours": "10 am - 10 pm EST, 7 days a week",
+      "link_googlemap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2816663015815!2d106.69721651480097!3d10.789725892312536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528caafa7703d%3A0xd655aeb0c7040512!2zMTEgUGhhbiBL4bq_IELDrW5oLCDEkGEgS2FvLCBRdeG6rW4gMSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1624436027992!5m2!1svi!2s"
+    },
+    {
+      "name": "Phố đi bộ Nguyễn Huệ",
+      "address": "22 Nguyễn Huệ, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
+      "phone": "0123456789",
+      "store_hours": "10 am - 10 pm EST, 7 days a week",
+      "link_googlemap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.484367693829!2d106.70148051480075!3d10.774165592323076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f9219138937%3A0x5717de94d96c58e9!2zUGjhu5EgxJFpIGLhu5kgTmd1eeG7hW4gSHXhu4cgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1624436000029!5m2!1svi!2s"
+    },
+    {
+      "name": "Nóc hầm Thủ Thiên",
+      "address": "Cầu Ông Cậy, Đ.Cây Bàng, Thủ Thiêm, Quận 2, Thành phố Hồ Chí Minh, Việt Nam",
+      "phone": "0123456789",
+      "store_hours": "10 am - 10 pm EST, 7 days a week",
+      "link_googlemap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5264124209816!2d106.70758531433668!3d10.770935262241414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fc4352b7435%3A0xb447893b0d633628!2zTsOzYyBo4bqnbSB0aOG7pyB0aGnDqm0!5e0!3m2!1svi!2s!4v1624435975404!5m2!1svi!2s"
+    },
+    {
+      "name": "Tháp Bitexco Financial Tower",
+      "address": "2 Hải Triều, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh, Việt Nam",
+      "phone": "0123456789",
+      "store_hours": "10 am - 10 pm EST, 7 days a week",
+      "link_googlemap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5164813306096!2d106.70237031433672!3d10.77169836222752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4138cf4909%3A0xaa966d5f7d098671!2sTh%C3%A1p%20Bitexco%20Financial%20Tower!5e0!3m2!1svi!2s!4v1624435923364!5m2!1svi!2s"
+    },
+    {
+      "name": "Landmark 81",
+      "address": "720A Điện Biên Phủ, Phường 22, Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam",
+      "phone": "0123456789",
+      "store_hours": "10 am - 10 pm EST, 7 days a week",
+      "link_googlemap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2126641427567!2d106.71966481433691!3d10.795017761803225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529aff2892003%3A0x856b53b1af6b19f3!2sLandmark%2081!5e0!3m2!1svi!2s!4v1624435626208!5m2!1svi!2s"
+    }
+  ]
+}

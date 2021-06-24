@@ -7,7 +7,7 @@ export default function StoreLocation() {
 	let [list, setList] = useState([]);
 	useEffect(() => {
 		let res = localStore.local().then((res) => setList(res.data));
-		console.log(list);
+		// console.log(list);
 	}, []);
 	return (
 		<>

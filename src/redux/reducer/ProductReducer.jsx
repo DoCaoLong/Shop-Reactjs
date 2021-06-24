@@ -1,7 +1,7 @@
-import { CATEGORY, PRODUCTS, LOADING, VIEW } from '../Type';
+import { CATEGORY, PRODUCTS, LOADING, VIEW, ENTER_ADD_CART } from '../Type';
 
 let init = {
-	product: [],
+	product: JSON.parse(localStorage.getItem('product')) || [],
 	category: [],
 	paginate: [],
 	loading: false,
@@ -11,6 +11,7 @@ let init = {
 export default function ProductReducer(state = init, action) {
 	switch (action.type) {
 		case PRODUCTS:
+			localStorage.setItem('product', JSON.stringify(action.payload.data));
 			return {
 				...state,
 				product: action.payload.data,
@@ -32,6 +33,7 @@ export default function ProductReducer(state = init, action) {
 				...state,
 				productDetail: action.payload,
 			};
+
 		default:
 			return state;
 	}

@@ -1,4 +1,4 @@
-import { ADD_CART, DECREASE_CART, INCREASE_CART, REMOVE_CART } from '../Type';
+import { ADD_CART, DECREASE_CART, INCREASE_CART, REMOVE_CART, ENTER_ADD_CART } from '../Type';
 
 export function AddCartAction(prop) {
 	// console.log('prop cart action:>> ', prop);
@@ -25,6 +25,13 @@ export function ReCartAction(prop) {
 	// console.log('prop cart action:>> ', prop);
 	return {
 		type: REMOVE_CART,
+		payload: prop,
+	};
+}
+export function EnterAddCartAction(prop) {
+	console.log('prop enter add cart action:>> ', prop);
+	return {
+		type: ENTER_ADD_CART,
 		payload: prop,
 	};
 }

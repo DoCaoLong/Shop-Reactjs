@@ -7,8 +7,8 @@ export function ProductModal() {
 	// console.log('productDetail :>> ', productDetail);
 	let dispatch = useDispatch();
 
-	function HandleAddCart() {
-		dispatch(AddCartAction({ ...productDetail }));
+	function HandleAddCart(prop) {
+		dispatch(AddCartAction(prop));
 	}
 	return ReactDOM.createPortal(
 		<div className="modal fade" id="modalProduct" tabIndex={-1} role="dialog" aria-hidden="true">
@@ -318,7 +318,13 @@ export function ProductModal() {
 											</div>
 											<div className="col-12 col-lg">
 												{/* Submit */}
-												<button onClick={HandleAddCart} className="btn btn-block btn-dark mb-2">
+												<button
+													onClick={(e) => {
+														e.preventDefault();
+														HandleAddCart({ ...productDetail });
+													}}
+													className="btn btn-block btn-dark mb-2"
+												>
 													Add to Cart <i className="fe fe-shopping-cart ml-2" />
 												</button>
 											</div>

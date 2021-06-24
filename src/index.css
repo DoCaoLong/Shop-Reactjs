@@ -36,3 +36,10 @@ code {
 	justify-content: center;
 	margin-right: 8px;
 }
+.active-local {
+	background-color: #222;
+	color: white;
+}
+.color-white {
+	color: #ccc !important;
+}
